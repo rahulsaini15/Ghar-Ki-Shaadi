@@ -1,20 +1,24 @@
 {
-  "name": "mousame-vatan-wedding",
-  "private": true,
+  "name": "ghar-ki-shaadi",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "framer-motion": "^12.23.6",
-    "lucide-react": "^0.525.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "framer-motion": "11.18.2",
+    "lucide-react": "0.468.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "vite": "^7.0.4"
+    "@vitejs/plugin-react": "4.3.4",
+    "vite": "6.0.7"
   }
 }
