@@ -2,13 +2,22 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function getTimeLeft(targetDate) {
-  const difference = Math.max(new Date(targetDate) - Date.now(), 0);
+  const difference = Math.max(
+    new Date(targetDate) - Date.now(),
+    0
+  );
 
   return {
     days: Math.floor(difference / 86400000),
-    hours: Math.floor(difference / 3600000) % 24,
-    minutes: Math.floor(difference / 60000) % 60,
-    seconds: Math.floor(difference / 1000) % 60,
+
+    hours:
+      Math.floor(difference / 3600000) % 24,
+
+    minutes:
+      Math.floor(difference / 60000) % 60,
+
+    seconds:
+      Math.floor(difference / 1000) % 60,
   };
 }
 
@@ -17,7 +26,9 @@ function formatNumber(number) {
 }
 
 export default function Countdown({ targetDate }) {
-  const [time, setTime] = useState(() => getTimeLeft(targetDate));
+  const [time, setTime] = useState(() =>
+    getTimeLeft(targetDate)
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,7 +49,10 @@ export default function Countdown({ targetDate }) {
 
   return (
     <section className="screen countdown">
-      <div className="countdownDecorations" aria-hidden="true">
+      <div
+        className="countdownDecorations"
+        aria-hidden="true"
+      >
         <span>❦</span>
         <span>✦</span>
         <span>❀</span>
@@ -65,28 +79,32 @@ export default function Countdown({ targetDate }) {
         </motion.h1>
 
         <div className="grid">
-          {countdownItems.map(([label, value], index) => (
-            <motion.div
-              key={label}
-              initial={{
-                opacity: 0,
-                scale: 0.8,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-            >
-              <strong>{formatNumber(value)}</strong>
+          {countdownItems.map(
+            ([label, value], index) => (
+              <motion.div
+                key={label}
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
+                viewport={{ once: true }}
+              >
+                <strong>
+                  {formatNumber(value)}
+                </strong>
 
-              <span>{label}</span>
-            </motion.div>
-          ))}
+                <span>{label}</span>
+              </motion.div>
+            )
+          )}
         </div>
       </div>
     </section>
