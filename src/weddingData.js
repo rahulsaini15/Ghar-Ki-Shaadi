@@ -42,7 +42,8 @@ export const weddingData = {
   venue: {
     name: "विवाह स्थल",
 
-    address: "मंगल स्थल पर पधारकर नवयुगलों को अपना आशीर्वाद प्रदान करें",
+    address:
+      "मंगल स्थल पर पधारकर नवयुगलों को अपना आशीर्वाद प्रदान करें",
 
     mapUrl: "https://share.google/BeKWSwiRcKkaYqh0G",
   },
