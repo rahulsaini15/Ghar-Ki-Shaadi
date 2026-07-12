@@ -6,7 +6,18 @@ import Opening from "./components/Opening";
 import Countdown from "./components/Countdown";
 
 function FloatingBackground() {
-  const decorations = ["❀", "✦", "❦", "✧", "❀", "✦", "❦", "✧", "❀", "✦"];
+  const decorations = [
+    "❀",
+    "✦",
+    "❦",
+    "✧",
+    "❀",
+    "✦",
+    "❦",
+    "✧",
+    "❀",
+    "✦",
+  ];
 
   return (
     <div className="floatingBackground" aria-hidden="true">
@@ -59,8 +70,8 @@ export default function App() {
 
   const shareInvitation = async () => {
     const shareData = {
-      title: "Mousame & Vatan Wedding",
-      text: "सैनी परिवार की ओर से स्नेह निमंत्रण",
+      title: "Mousam & Vatan Wedding",
+      text: "सैनी परिवार की ओर से स्नेह निमंत्रण 💍",
       url: window.location.href,
     };
 
@@ -69,6 +80,7 @@ export default function App() {
         await navigator.share(shareData);
       } else {
         await navigator.clipboard.writeText(window.location.href);
+
         alert("निमंत्रण लिंक कॉपी हो गया");
       }
     } catch (error) {
@@ -78,7 +90,12 @@ export default function App() {
 
   return (
     <>
-      <audio ref={audioRef} src="/music/wedding-song.mp3" loop preload="auto" />
+      <audio
+        ref={audioRef}
+        src="/music/wedding-song.mp3"
+        loop
+        preload="auto"
+      />
 
       <AnimatePresence>
         {!opened && <Opening onOpen={openInvitation} />}
@@ -142,7 +159,8 @@ export default function App() {
 
               <a className="down" href="#couples">
                 मंगल यात्रा आरंभ करें
-                <br />⌄
+                <br />
+                ⌄
               </a>
             </div>
           </motion.section>
@@ -162,9 +180,7 @@ export default function App() {
                   scale: 1,
                   y: 0,
                 }}
-                transition={{
-                  duration: 0.8,
-                }}
+                transition={{ duration: 0.8 }}
                 viewport={{
                   once: true,
                   amount: 0.25,
@@ -175,7 +191,9 @@ export default function App() {
                 <div className="content coupleBox">
                   <p className="label">शुभ विवाह</p>
 
-                  <small>मंगल मिलन • {index ? "द्वितीय" : "प्रथम"}</small>
+                  <small>
+                    मंगल मिलन • {index ? "द्वितीय" : "प्रथम"}
+                  </small>
 
                   <motion.h2
                     initial={{ opacity: 0, x: -50 }}
@@ -392,7 +410,10 @@ export default function App() {
 
               <p>।। शुभ विवाह ।।</p>
 
-              <button className="btn" onClick={shareInvitation}>
+              <button
+                className="btn"
+                onClick={shareInvitation}
+              >
                 निमंत्रण साझा करें
               </button>
             </motion.div>
@@ -410,7 +431,7 @@ export default function App() {
             >
               <h1>मौसम ❦ वतन</h1>
 
-              <h3>Mousame & Vatan Wedding</h3>
+              <h3>Mousam & Vatan Wedding</h3>
 
               <p>सप्रेम — {d.family}</p>
             </motion.div>
@@ -424,7 +445,11 @@ export default function App() {
           onClick={toggleMusic}
           aria-label="Toggle music"
         >
-          {playing ? <Music2 size={22} /> : <Music size={22} />}
+          {playing ? (
+            <Music2 size={22} />
+          ) : (
+            <Music size={22} />
+          )}
         </button>
       )}
     </>
